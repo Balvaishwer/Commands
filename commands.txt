@@ -1,0 +1,44 @@
+where to find my.ini in mysql 8.09
+You can type win+R and write %PROGRAMDATA% to access MySQL folder, or just enable show hidden folder.
+
+mysql.connector.errors.NotSupportedError: Authentication plugin 'caching_sha2_password' is not supported
+add mysql-connector-python module
+
+To dump csv intp mysql
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\InventorID_Patent_20190129.csv' 
+INTO TABLE patents_inventors 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+Create indexes in mysql
+CREATE INDEX inventor_id ON patents_inventors(inventor_id);
+
+copy multiple csv files into one
+copy *.csv merged.csv
+
+
+start headless browser in windows
+start chrome --headless  --disable-gpu --remote-debugging-port=9222 https://www.fold3.com
+
+Kill a process in windows
+taskkill /F /PID pid_number
+
+Start headless browser
+start chrome --headless --disable-gpu  --dump-dom https://www.chromestatus.com/
+
+ from selenium.webdriver.chrome.options import Options
+ #setting up the headless browser
+            opts = Options
+            opts.set_headless = True
+
+            # start up firefox and go to site
+            print("Starting The Chrome")
+            driver = webdriver.Chrome(options= opts)
+			
+			
+			
+select COUNT() from tab8 where patent  IN (Select patent from tab8 where inventor_id='4239554-1') and inventor_id='5023491-1' #for team of two
+select COUNT() from tab8 where patent  IN (Select patent from tab8 where Patent in (select patent from tab8 where inventor_id='7133003-3') and inventor_id='7133003-5') and inventor_id='5630080-3' #team of three
